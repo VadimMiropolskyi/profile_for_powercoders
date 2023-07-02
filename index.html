@@ -4,28 +4,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Web Portfolio of Vadym</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="portfolio-title">Web Portfolio of Vadym</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Web Portfolio of Vadym</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog/index.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="projects/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact/index.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <h2 class="welcome-title">Welcome!</h2>
+    <div class="container">
+        <h1 class="portfolio-title">Web Portfolio of Vadym</h1>
 
-    <p class="intro-text">Thanks for stopping by.</p>
+        <h2 class="welcome-title">Welcome!</h2>
 
-    <p class="intro-text">We appreciate your visit. Take a moment to explore. In the blog section, you can delve into my programming experiences.
-        <br>Don't forget to check out my web projects too.<br> Have Fun.</p>
+        <p class="intro-text">Thanks for stopping by.</p>
 
-    <img class="my-photo" src="my_foto.jpg" alt="Picture of me">
+        <p class="intro-text">We appreciate your visit. Take a moment to explore. In the blog section, you can delve into my programming experiences.
+            <br>Don't forget to check out my web projects too.<br> Have Fun.</p>
 
-    <p class="signature">Vadym Miropolskyi &#x1F60A;</p>
+        <img class="my-photo" src="my_foto.jpg" alt="Picture of me">
 
-    <ul class="navigation">
-        <li><a href="blog/index.html" target="_blank">Blog</a></li>
-        <li><a href="projects/index.html" target="_blank">Projects</a></li>
-        <li><a href="contact/index.html" target="_blank">Contact</a></li>
-    </ul>
+        <p class="signature">Vadym Miropolskyi &#x1F60A;</p>
 
+        <div class="ad-banner">
+            <p id="running-text" class="mb-0">I want to study at Powercoders! </p>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Running text animation
+        const runningText = document.getElementById('running-text');
+        const textToRun = 'I want to study at Powercoders! ';
+        let index = 0;
+        let runningInterval;
+
+        function runText() {
+            runningText.textContent = textToRun.substring(0, index);
+            index++;
+            if (index > textToRun.length) {
+                index = 0;
+            }
+        }
+
+        runningInterval = setInterval(runText, 150);
+
+        // Stop running text animation on mouse hover
+        runningText.addEventListener('mouseover', function() {
+            clearInterval(runningInterval);
+        });
+
+        // Resume running text animation on mouse leave
+        runningText.addEventListener('mouseleave', function() {
+            runningInterval = setInterval(runText, 150);
+        });
+    </script>
 </body>
 </html>
